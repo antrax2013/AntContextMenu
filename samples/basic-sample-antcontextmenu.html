@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Basic sample of AntContextMenu - AntProduction</title>
+    <meta content="Basci sample of AntContextMenu, the jQuery context menu plug-in of AntProduction." name="description">
+    <meta content="antproduction, jquery plug in, jquery, turnkey jquery library, AntContextMenu, context menu" name="keywords">
+    <meta name="author" content="Antrax2013">
+
+    <!-- hightLight Syntaxe -->
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+
+    <link href="../public/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <link href="../public/css/AntContextMenu.css" rel="stylesheet">
+
+
+    <style>
+        table
+        {
+            display:inline-block;
+            width:100% !important;
+        }
+        table thead, table tbody, table tfoot
+        {
+            width:100% !important;
+        }
+
+        table .odd
+        {
+            background: #eee !important;
+        }
+        table tr td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #52a125 !important;
+        }
+        table tr td:hover {
+            border: 1px solid #ffdd00 !important;
+        }
+    </style>
+
+    <script type="text/javascript" src="../public/js/libs/external-libs/jquery-1.10.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../public/js/libs/external-libs/google-analytics.js"></script>
+    <script type="text/javascript" src="../public/js/libs/AntContextMenu.js"></script>
+    <script type="text/javascript">
+
+        //Sources code hightLight syntaxe
+        hljs.initHighlightingOnLoad();
+
+        $(document).ready(function() {
+
+            //initialisation of AntContextMenu
+            $("td").AntContextMenu();
+
+            //initialisation of click event of Menu item
+            $('#menu .ui-menu-item[aria-haspopup!="true"]').bind("click", function() {
+                alert("Click event on "+$(this).text()+" is fired")
+            });
+        });
+    </script>
+</head>
+
+<body>
+<header>
+    <section class="content-wrapper">
+        <div class="float-left">
+            <h1 class="site-title">AntContextMenu jQuery plug in</h1>
+            <br/><span class="library-version">v0.1 - 01/24/2015</span>
+        </div>
+        <div class="float-right">
+            <a href="http://antproduction.free.fr/" title="AntProduction. Set once, daily use"><img src="../../public/images/antproduction-logo-blue-159x35.png" alt="logo of AntProduction. Set once, daily use" /></a>
+        </div>
+    </section>
+</header>
+<article class="main-content clear-fix" id="body">
+    <section class="content-wrapper">
+        <h2>Basic sample of AntContextMenu</h2>
+
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <ul style='width: 100px' id="menu" class="hidden">
+            <li class="ui-widget-header">Category 1</li>
+            <li><span class="ui-icon ui-icon-disk"></span>Item 1</li>
+            <li>Item 2</li>
+            <li><hr /></li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li class="ui-widget-header">Category 2</li>
+            <li>
+                Item 5
+                <ul>
+                    <li>Item 3-1</li>
+                    <li>Item 3-2</li>
+                    <li>Item 3-3</li>
+                    <li>Item 3-4</li>
+                    <li>Item 3-5</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+    <section class="content-wrapper">
+        <h2>Source Code</h2>
+				<pre><code style="background-color:#fff">
+//initialisation of AntContextMenu
+$("td").AntContextMenu();
+                </code>
+					</pre>
+    </section>
+</article>
+<footer>Copyright © 2014 <a href="http://antproduction.free.fr/">AntProduction</a></footer>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿/*.separateur{
+    border-bottom: 1px solid #52a125 !important;
+}*/
+
+.ui-menu-item{
+    width: auto;
+    white-space: nowrap;
+}
+
+.ui-menu .ui-widget-header {
+    padding: 0px 2px;
+    white-space: nowrap;
+    width: auto;
+}
