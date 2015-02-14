@@ -1,5 +1,5 @@
 /*! AntContextMenu V1.00
- * Copyright (c) 2014 AntProduction
+ * Copyright (c) 2015 AntProduction
  * http://antproduction.free.fr/AntColorPicker
  * https://github.com/antrax2013/AntColorPicker
  *
@@ -30,6 +30,7 @@
                minX: 10,
                minY: 10
            },
+           disableClickEventItemWithSubMenu: true,
            contextMenuSelector: "#menu"
         };
 
@@ -47,11 +48,12 @@
             $( parametres.contextMenuSelector).menu({
                 items: "> :not(.ui-widget-header)", //mise en forme d'entête de catégorie
 
-                /*select: function( event, ui ) { //gestion de la sélection d'une entrée
-                    var tmp= jQuery.inArray(ui.item, ui.item[0].parentNode.children);
-                    alert("click event on "+ ui.item.text() +" is fired");
-                }*/
-            })/*.mouseleave(function() {$(this).addClass("hidden")});*/
+                select: function( event, ui ) { //gestion de la sélection d'une entrée
+                    /*var tmp= jQuery.inArray(ui.item, ui.item[0].parentNode.children);
+                    alert("click event on "+ ui.item.text() +" is fired");*/
+                    $( parametres.contextMenuSelector).addClass("hidden");
+                },
+            }).mouseleave(function() {$(this).addClass("hidden")});
 
             $(document).keydown(function() {$( parametres.contextMenuSelector ).addClass("hidden")});
 
@@ -66,6 +68,10 @@
                 else if (x<parametres.dimension.minX) x=parametres.dimension.minX;
                 if(y>parametres.dimension.maxY) y=parametres.dimension.maxY;
                 else if (y<parametres.dimension.minY) y=parametres.dimension.minY;
+
+                if(parametres.disableClickEventItemWithSubMenu) {
+                    $(parametres.contextMenuSelector + ' .ui-menu-item[aria-haspopup="true"]').unbind("click");
+                }
 
                 //Position à l'endroit du click
                 $( parametres.contextMenuSelector).css({
